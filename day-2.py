@@ -31,7 +31,7 @@ num_prs_pt2['p1'] = num_prs_pt2['p1'].apply(pd.to_numeric)
 
 
 # work out result of each round pt1
-def round_result_pt1(p1score, p2score):
+def round_result(p1score, p2score):
     if p1score == p2score:
         return p2score + 3
     elif (p2score == 3) & (p1score == 1):
@@ -44,23 +44,39 @@ def round_result_pt1(p1score, p2score):
         return p2score
 
 
-num_prs['round_score'] = num_prs.apply(lambda x: round_result_pt1(x['p1'], x['p2']), axis=1)
+# total up round score
+num_prs['round_score'] = num_prs.apply(lambda x: round_result(x['p1'], x['p2']), axis=1)
 
+# sum up all round scores
 part_1_score = num_prs['round_score'].sum()
+print(part_1_score)
 
+
+### part 2 ###
 
 # work out result of each round
-def round_result_pt2(p1score, p2result):
+def predict_result(p1score, p2result):
     if p2result == 'Draw':
         return p1score
-    elif (p2score == 3) & (p1score == 1):
-        return p2score
-    elif (p2score == 1) & (p1score == 3):
-        return p2score + 6
-    elif p2score > p1score:
-        return p2score + 6
+    elif p2result == 'Win':
+        if p1score + 1 > 3:
+            return 1
+        else:
+            return p1score + 1
     else:
-        return p2score
+        if p1score - 1 < 1:
+            return 3
+        else:
+            return p1score - 1
 
 
-print(num_prs_pt2)
+# predict output result for part 2
+num_prs_pt2['p2'] = num_prs_pt2.apply(lambda x: predict_result(x['p1'], x['p2']), axis=1)
+
+# total up part 2 round score
+num_prs_pt2['round_score'] = num_prs_pt2.apply(lambda x: round_result(x['p1'], x['p2']), axis=1)
+
+# part 2 answer
+part_2_score = num_prs_pt2['round_score'].sum()
+print(part_2_score)
+
