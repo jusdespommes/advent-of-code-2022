@@ -1,9 +1,30 @@
 <?xml version="1.0"?>
 <AlteryxDocument yxmdVer="2020.4">
   <Nodes>
+    <Node ToolID="1">
+      <GuiSettings>
+        <Position x="145" y="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Text Box (5)">_ga=GA1.2.1577261669.1669890232; _gid=GA1.2.1007606226.1669890232; session=53616c7465645f5f6066bdccc3b2a9ac2e33b86b66408e5d25986bac6f984e16e42096a2a354f4967ddd30fcf1ff49d061791d3ca971460e21be5f00aa0efb8b; _gat=1</Value>
+          <Value name="Numeric Up Down (7)">2022</Value>
+          <Value name="Numeric Up Down (9)">1</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="WF Specific Macros\AoC - Download Data.yxmc" />
+    </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="155" y="84" />
+        <Position x="245" y="165" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -39,7 +60,7 @@ else
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="355" y="84" />
+        <Position x="445" y="165" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -58,7 +79,7 @@ else
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="255" y="84" />
+        <Position x="345" y="165" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -79,7 +100,7 @@ else
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="455" y="84" />
+        <Position x="545" y="165" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -95,30 +116,9 @@ else
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
     </Node>
-    <Node ToolID="13">
-      <GuiSettings>
-        <Position x="55" y="84" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="Text Box (5)">_ga=GA1.2.1577261669.1669890232; _gid=GA1.2.1007606226.1669890232; session=53616c7465645f5f6066bdccc3b2a9ac2e33b86b66408e5d25986bac6f984e16e42096a2a354f4967ddd30fcf1ff49d061791d3ca971460e21be5f00aa0efb8b; _gat=1</Value>
-          <Value name="Numeric Up Down (7)">2022</Value>
-          <Value name="Numeric Up Down (9)">1</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings Macro="AoC - Download Data.yxmc" />
-    </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="630" y="55" width="209" height="149" />
+        <Position x="720" y="136" width="209" height="149" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -136,7 +136,7 @@ else
       <ChildNodes>
         <Node ToolID="2">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="755" y="104" />
+            <Position x="845" y="185" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -160,7 +160,7 @@ else
         </Node>
         <Node ToolID="7">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-            <Position x="655" y="104" />
+            <Position x="745" y="185" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -180,7 +180,7 @@ else
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="530" y="245" width="309" height="149" />
+        <Position x="620" y="326" width="309" height="149" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -198,7 +198,7 @@ else
       <ChildNodes>
         <Node ToolID="8">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-            <Position x="555" y="294" />
+            <Position x="645" y="375" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -216,7 +216,7 @@ else
         </Node>
         <Node ToolID="9">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="755" y="294" />
+            <Position x="845" y="375" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -239,7 +239,7 @@ else
         </Node>
         <Node ToolID="10">
           <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-            <Position x="655" y="294" />
+            <Position x="745" y="375" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -260,6 +260,10 @@ else
   </Nodes>
   <Connections>
     <Connection>
+      <Origin ToolID="1" Connection="data" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="3" Connection="Output" />
       <Destination ToolID="5" Connection="Input" />
     </Connection>
@@ -278,10 +282,6 @@ else
     <Connection>
       <Origin ToolID="6" Connection="Output" />
       <Destination ToolID="8" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="13" Connection="data" />
-      <Destination ToolID="3" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
