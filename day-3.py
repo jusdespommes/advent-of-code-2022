@@ -5,9 +5,6 @@ import numpy as np
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
-# test data
-# data = pd.read_csv(r'C:\Users\Alex.SJones\OneDrive - JLL\AJ Files\git\advent-of-code-2022\test-data\day-2.csv')
-
 # import data
 original_data = get_aoc_data(2022, 3)
 
