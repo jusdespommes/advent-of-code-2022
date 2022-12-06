@@ -1,7 +1,5 @@
-import re
 from aocd import get_aoc_data
 import pandas as pd
-import numpy as np
 
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
@@ -9,23 +7,24 @@ pd.set_option('display.max_columns', None)
 # import data
 start = get_aoc_data(2022, 6).reset_index()
 
-start['item'] = start['data'].apply(lambda x: re.findall('.', x))
-
-start = start.explode(['item'])
-
-chars = list(start['item'])
+# get individual chars into list
+chars = start['data'].apply(lambda x: list(x)).tolist()[0]
 
 
 def find_first_unique_packet(chars_lst, num):
 
+    # define lst length
     lst_len = len(chars_lst)
+    # set start and end point for chars
     i = 0
     j = i + num
 
+    # initiate loop until answer found
     while j < lst_len:
         i += 1
         j += 1
         check = chars_lst[i:j]
+        # check unique chars
         if len(set(check)) == num:
             return j
 
