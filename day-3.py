@@ -64,7 +64,7 @@ p2_data = original_data.copy(deep=True)
 p2_data['group'] = np.divmod(np.arange(len(p2_data)), 3)[0] + 1
 
 # row id per group
-p2_data['row_id'] = p2_data.groupby(['group']).cumcount()+1
+p2_data['row_id'] = p2_data.groupby(['group']).cumcount() + 1
 
 # pivot data
 p2_data = p2_data.pivot(index='group', columns='row_id', values='data').reset_index()
