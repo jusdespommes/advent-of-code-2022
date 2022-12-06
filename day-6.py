@@ -16,7 +16,7 @@ def find_first_unique_packet(chars_lst, num):
     # define lst length
     lst_len = len(chars_lst)
     # set start and end point for chars
-    i = 0
+    i = -1
     j = i + num
 
     # initiate loop until answer found
